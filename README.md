@@ -16,11 +16,14 @@ Usage:
 =============
 
 Store fixsamba to /jffs on the router
+```
 chmod 755 /jffs/fixsamba
+```
 
-Modify smb.conf to suit your preference.
-Store smb.conf to /jffs
+Modify smb.conf to suit your preference, then store to /jffs
+```
 chmod 644 /jffs/fixsamba
+```
 
 ```
 nvram set script_usbmount="/jffs/fixsamba"
