@@ -1,0 +1,21 @@
+#!/bin/sh
+touch /tmp/000init-start
+i=0
+while [ $i -le 20 ]; do
+   success_start_service=`nvram get success_start_service`
+   if [ "$success_start_service" == "1" ]; then
+       break
+   fi
+   i=$(($i+1))
+   echo "autorun APP: wait $i seconds...";
+   sleep 1
+done
+
+cp /jffs/smb.conf /etc/
+for pid in `ps -w | grep smbd | grep -v grep | awk '{print $1}'`
+do
+   echo "killing $pid"
+   kill $pid
+done
+
+smbd -D -s /etc/smb.conf
