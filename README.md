@@ -6,7 +6,7 @@ Replace the default Samba smb.conf file with a customized configuration file, th
 
 Out of the box, the Asus RT-AC87 router has some handy, but limited, file and media sharing capabilities. Connect a USB hard drive to one of its USB ports, and the router can share data from that drive with anyone on your network. The firmware implements Samba, but through the GUI you have only two options: allow anonymous guests complete access, or require a username and password for every connection. Samba can be configured far more granularly, but you cannot get there from the AC87 web interface. This script automates replacing the stock configuration file with one customized to the owner's preference.
 
-For more information on how this works, see http://www.securityforrealpeople.com/2014/12/customizing-samba-on-asuswrt-wireless.html
+For more information on how this works, see https://securityforrealpeople.com/2014/12/customizing-samba-on-asuswrt-wireless.html
 
 Requirements:
 =============
