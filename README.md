@@ -24,7 +24,7 @@ chmod 755 /jffs/fixsamba
 
 Modify smb.conf to suit your preference, then store to /jffs
 ```
-chmod 644 /jffs/fixsamba
+chmod 644 /jffs/smb.conf
 ```
 
 ```
