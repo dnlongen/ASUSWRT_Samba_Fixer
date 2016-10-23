@@ -1,5 +1,7 @@
 #!/bin/sh
 touch /tmp/000init-start
+
+# Wait for all services to load
 i=0
 while [ $i -le 20 ]; do
    success_start_service=`nvram get success_start_service`
@@ -11,11 +13,15 @@ while [ $i -le 20 ]; do
    sleep 1
 done
 
-cp /jffs/smb.conf /etc/
+# Kill Samba service, replace conf file with custom, and restart
 for pid in `ps -w | grep smbd | grep -v grep | awk '{print $1}'`
 do
    echo "killing $pid"
    kill $pid
 done
 
+sleep 3m
+
+cp /jffs/smb.conf /etc/
+chmod 444 /etc/smb.conf
 smbd -D -s /etc/smb.conf
